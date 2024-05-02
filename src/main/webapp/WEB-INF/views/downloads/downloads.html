@@ -71,9 +71,9 @@
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                       aria-controls="v-pills-home" aria-selected="true">Downloads</a>
+                       aria-controls="v-pills-home" aria-selected="true">Downloads report</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                       aria-controls="v-pills-profile" aria-selected="false">Barcode Downloads</a>
+                       aria-controls="v-pills-profile" aria-selected="false">Downloads distribution</a>
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
                        aria-controls="v-pills-messages" aria-selected="false">Messages</a>
                     <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
@@ -82,15 +82,21 @@
             </div>
             <div class="col-9">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                         aria-labelledby="v-pills-home-tab">
+                    <div class="tab-pane fade show active " id="v-pills-home" role="tabpanel"
+                         aria-labelledby="v-pills-home-tab" >
                         <div class="row mb-3">
                             <div class="col-6">
 
                                 <form th:action="@{/invoices-import}" class="card p-2" method="post" enctype="multipart/form-data">
                                     <label for="file-upload-input" id="invoices-import">Select file to upload invoices</label>
+
+                                    <select style="margin-bottom: 10px" id="provider" name="provider" class="form-select form-select-sm" required>
+                                        <option value="">select option</option>
+                                        <option th:each="option : ${suppliers}" th:value="${option}" th:text="${option}"></option>
+                                    </select>
+
                                     <div class="input-group">
-                                        <input type="file" class="form-control" id="invoices" name="file">
+                                        <input type="file" class="form-control" id="invoices" name="file" required>
                                         <button type="submit" class="btn btn-secondary">Применить</button>
                                     </div>
                                 </form>
@@ -99,22 +105,22 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-6">
-                                <form th:action="@{/importsuppliers}" class="card p-2" method="post" enctype="multipart/form-data">
-                                    <label for="file-upload-input" id="status-messages-MARWEL">Select file to upload Поставщики</label>
+                                <form th:action="@{/sales-report-import}" class="card p-2" method="post" enctype="multipart/form-data">
+                                    <label for="file-upload-input" id="status-messages-sales-report">Select file to upload sales</label>
                                     <div class="input-group">
-                                        <input type="file" class="form-control" th:name="importsuppliers"/>
-                                        <button  th:type="submit" class="btn btn-secondary" value="Import"/>Применить</button>
+                                        <input type="file" class="form-control" id="sales" name="file" required>
+                                        <button  type="submit" class="btn btn-secondary">Применить</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-6">
-                                <form th:action="@{/importsales}" class="card p-2" method="post" enctype="multipart/form-data" >
-                                    <label for="file-upload-input" id="status-messages-Продажи">Select file to upload Продажи</label>
+                                <form th:action="@{/retail-prices-import}" class="card p-2" method="post" enctype="multipart/form-data" >
+                                    <label for="file-upload-input" id="status-messages-Продажи">Select file to upload retail prices</label>
                                     <div class="input-group">
-                                        <input type="file" class="form-control" th:name="importsales"/>
-                                        <button th:type="submit" class="btn btn-secondary" value="Import"/>Применить</button>
+                                        <input type="file" class="form-control" name="file" required>
+                                        <button type="submit" class="btn btn-secondary" >Применить</button>
                                     </div>
                                 </form>
                             </div>
