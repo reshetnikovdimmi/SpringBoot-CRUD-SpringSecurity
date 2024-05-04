@@ -46,6 +46,7 @@ public abstract class CRUDController<E, K> {
 
     @PostMapping("/create")
     public String showCreate(@ModelAttribute("shop") @Valid E object, BindingResult bindingResult, Model model) {
+
         if (!bindingResult.hasErrors()) getService().create(object);
         model.addAttribute("message", bindingResult.getFieldError());
         model.addAttribute("shop1", getObj());

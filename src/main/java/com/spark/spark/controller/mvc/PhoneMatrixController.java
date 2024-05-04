@@ -48,12 +48,13 @@ public class PhoneMatrixController extends CRUDController<PhoneMatrix, Long> {
         return new ExselFileImportPhoneMatrix<>();
     }
 
+    @Override
     @PostMapping("/create")
     public String showCreate(@ModelAttribute("shop") @Valid PhoneMatrix object, BindingResult bindingResult, Model model) {
-        if (!bindingResult.hasErrors()){
-            if(object.getId()!=null){
+        if (!bindingResult.hasErrors()) {
+            if (object.getId() != null) {
                 PhoneMatrix phoneMatrix = getService().findById(object.getId());
-                if(!phoneMatrix.getName().equals(object.getName())){
+                if (!phoneMatrix.getName().equals(object.getName())) {
                     phoneMatrixRepository.updateName(object.getName(), phoneMatrix.getName());
                 }
             }
