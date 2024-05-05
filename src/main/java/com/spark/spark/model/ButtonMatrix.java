@@ -24,7 +24,6 @@ public class ButtonMatrix implements Serializable {
     private String model;
     @NotEmpty(message = "пусто")
     private String brand;
-    private String group;
     @Transient
     private Double price;
 

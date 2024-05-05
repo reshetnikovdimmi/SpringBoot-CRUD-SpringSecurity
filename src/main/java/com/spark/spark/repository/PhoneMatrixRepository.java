@@ -25,4 +25,10 @@ public interface PhoneMatrixRepository extends CrudRepository<PhoneMatrix, Long>
     @Query("update PhoneMatrix u set u.name = ?1 where u.name = ?2")
     void updateName(String s, String s1);
 
+    @Query("SELECT DISTINCT distributionModel  FROM PhoneMatrix")
+    List<String> getModelList();
+
+    @Query("SELECT distributionModel  FROM PhoneMatrix WHERE model = 'Poco' OR model = 'Xiaomi'")
+    List<String> getModelListXiaomi();
+
 }

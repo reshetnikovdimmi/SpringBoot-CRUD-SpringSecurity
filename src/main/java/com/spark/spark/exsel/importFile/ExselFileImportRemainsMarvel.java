@@ -30,8 +30,8 @@ public class ExselFileImportRemainsMarvel<E> extends ExselFileImport {
 
             RemainsMarvel salesReport = new RemainsMarvel();
 
-            salesReport.setCharacteristic(row.getCell(0).getStringCellValue());
-            salesReport.setNomenclature(row.getCell(1).getStringCellValue());
+            salesReport.setNomenclature(row.getCell(0).getStringCellValue());
+            salesReport.setCharacteristic(row.getCell(1).getStringCellValue());
 
             list.add(salesReport);
 

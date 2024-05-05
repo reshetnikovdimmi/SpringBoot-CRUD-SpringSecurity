@@ -111,13 +111,13 @@
                         </div>
                     </div>
                     <div class="col-md-6 themed-grid-col">
-                        <form action="/portalMarwel" method="post">
+                        <form action="/ui/marwel/create-report-marvel" method="post">
                             <div class="row mb-3">
 
                                 <div class="col-6 col-md-4 themed-grid-col">
-                                    <input type="date" class="form-control" name="start" id="start"></div>
+                                    <input type="date" class="form-control" name="start" id="start" required></div>
                                 <div class="col-6 col-md-4 themed-grid-col">
-                                    <input type="date" class="form-control" name="stop" id="stop"></div>
+                                    <input type="date" class="form-control" name="stop" id="stop" required></div>
                                 <div class="col-6 col-md-4 themed-grid-col">
                                     <button class="btn  btn-outline-primary" type="submit">Показать</button>
                                 </div>
@@ -169,7 +169,7 @@
                             </thead>
                             <tbody class="tbody">
 
-                            <tr th:each="current : ${noPhone}">
+                            <tr th:each="current : ${newPhone}">
 
                                 <td th:text="${current}"></td>
 
@@ -237,10 +237,10 @@
 
                             <tr th:each="current : ${artNaProdOst}">
 
-                                <td th:text="${current.article}"></td>
-                                <td th:text="${current.Name}"></td>
+                                <td th:text="${current.manufacturerArticle}"></td>
+                                <td th:text="${current.name}"></td>
                                 <td th:text="${current.sale}"></td>
-                                <td th:text="${current.remanis}"></td>
+                                <td th:text="${current.remains}"></td>
 
 
                             </tbody>
@@ -260,7 +260,7 @@
 
                             <tr th:each="current : ${article_imei}">
 
-                                <td th:text="${current.article}"></td>
+                                <td th:text="${current.manufacturerArticle}"></td>
                                 <td th:text="${current.imei}"></td>
 
                             </tbody>
@@ -288,9 +288,9 @@
 
                             <tr th:each="current : ${Poco}">
 
-                                <td th:text="${current.nomenclature}"></td>
+                                <td th:text="${current.model}"></td>
                                 <td th:text="${current.sale}"></td>
-                                <td th:text="${current.remanis}"></td>
+                                <td th:text="${current.remains}"></td>
                             </tbody>
                         </table>
                     </div>

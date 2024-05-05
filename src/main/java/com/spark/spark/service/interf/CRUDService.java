@@ -19,4 +19,6 @@ public interface CRUDService<E, K> {
     void deleteAll();
 
     List<E> saveAll(List<E> l);
+
+
 }
