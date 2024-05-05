@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 
 @Data
+//TODO: @Data лучше избегать при работе с @Entity https://habr.com/ru/companies/haulmont/articles/564682/
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

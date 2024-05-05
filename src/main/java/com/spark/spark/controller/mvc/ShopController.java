@@ -15,7 +15,7 @@ import java.util.List;
 public class ShopController extends CRUDController<Shop, Long> {
     @Autowired
     private ShopService shopServicee;
-
+    //TODO: константы должны быть выше всех в определении + кажется нужен класс констант куда это можно вынести
     public static final String SHOP_URL = "ui/shop";
     public static final String SHOP_NAME = "shop";
 

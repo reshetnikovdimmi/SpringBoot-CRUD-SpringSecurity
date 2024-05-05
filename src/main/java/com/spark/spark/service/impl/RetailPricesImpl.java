@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RetailPricesImpl extends AbstractCRUDService<RetailPrices, Long>  implements RetailPricesService {
     @Autowired
+    //TODO: модификатор private?
     RetailPricesRepository retailPricesRepository;
 
 

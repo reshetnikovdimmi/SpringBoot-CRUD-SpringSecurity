@@ -10,6 +10,7 @@ import java.util.List;
 
 public abstract class CRUDRestController<E, K> {
 @Autowired
+//TODO: неиспользуемый бин
 private ShopRepository promoRepository;
     abstract CRUDService<E, K> getService();
 

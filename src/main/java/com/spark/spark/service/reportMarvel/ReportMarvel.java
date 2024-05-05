@@ -28,7 +28,9 @@ public class ReportMarvel implements CheckingLists {
     @Autowired
             private InvoicesRepository invoicesRepository;
 
+    //TODO: переменные лишние, можно обойтись локальнами в методах
     List<String> a;
+    //TODO: переменные лишние, можно обойтись локальнами в методах
     List<String> b;
 
     public List<String> newPhones() {

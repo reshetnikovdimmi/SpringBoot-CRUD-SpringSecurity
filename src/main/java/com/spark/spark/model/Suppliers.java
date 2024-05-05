@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 @Data
+//TODO: @Data лучше избегать при работе с @Entity https://habr.com/ru/companies/haulmont/articles/564682/
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

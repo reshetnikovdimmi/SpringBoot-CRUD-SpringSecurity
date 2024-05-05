@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BonusesController {
     @GetMapping("/bonuses")
     public String bonuses(Model model) {
+        //TODO: зачем хранить закоменченный код?
        // model.addAttribute("optionsShop",authorizationTt.getShopList());
       //  model.addAttribute("optionsPhone",phoneRepositoriy.getPhoneList());
       //  model.addAttribute("optionsProvider",suppliersRepositoriy.getProviderList());

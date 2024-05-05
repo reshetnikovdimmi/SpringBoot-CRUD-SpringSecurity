@@ -1,6 +1,7 @@
 package com.spark.spark.service.interf;
 
 import com.spark.spark.model.Shop;
-
+//TODO: для интерфейсов можно не создать подпаке "interf". Они могут лежать в пакете service, а их
+//имплементации в пакете impl
 public interface ShopService extends CRUDService<Shop, Long>{
 }

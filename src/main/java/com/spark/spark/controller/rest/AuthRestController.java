@@ -24,12 +24,14 @@ import java.util.List;
 public class AuthRestController {
 
     @Autowired
+    //TODO: неиспользуемый бин
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    //TODO: неиспользуемый бин
     private ShopServiceImpl shopService;
 
     @Autowired

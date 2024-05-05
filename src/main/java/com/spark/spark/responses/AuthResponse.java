@@ -2,6 +2,7 @@ package com.spark.spark.responses;
 
 import com.spark.spark.security.ShopDetailsImpl;
 
+//TODO: @Data можно добавить + перенести в пакет dto
 public class AuthResponse {
 
     private ShopDetailsImpl shopDetails;

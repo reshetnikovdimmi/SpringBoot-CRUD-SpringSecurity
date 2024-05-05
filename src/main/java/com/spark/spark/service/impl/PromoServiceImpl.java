@@ -15,6 +15,7 @@ import java.util.List;
 @Service
 public class PromoServiceImpl extends AbstractCRUDService<Promo, Long>  implements PromoService {
     @Autowired
+    //TODO: модификатор private?
     PromoRepository promoRepository;
 
     private List<Promo> today;

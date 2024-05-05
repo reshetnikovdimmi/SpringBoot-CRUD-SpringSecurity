@@ -32,7 +32,9 @@ public class PromoController extends CRUDController<Promo, Long> {
     public static final String PROMO_URL = "ui/promo";
     public static final String PROMO_NAME = "promo";
 
+    //TODO: кажется что эти переменные не нужны, можно обойтись локальными
     java.util.Date utilDate;
+    //TODO: кажется что эти переменные не нужны, можно обойтись локальными
     java.sql.Date sqlDate;
 
     @Override

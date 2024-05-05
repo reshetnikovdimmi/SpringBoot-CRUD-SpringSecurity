@@ -1,7 +1,8 @@
 package com.spark.spark.service.interf;
 
 import java.util.List;
-
+//TODO: для интерфейсов можно не создать подпаке "interf". Они могут лежать в пакете service, а их
+//имплементации в пакете impl
 public interface CRUDService<E, K> {
 
     void create(E entity);

@@ -9,8 +9,11 @@ import java.text.ParseException;
 import java.util.List;
 
 public class ExselFileImport<E> {
+    //TODO: модификатор private?
     XSSFWorkbook workbook;
+    //TODO: модификатор private?
     XSSFSheet worksheet;
+    //TODO: модификатор private?
     List<E> list;
 
     public List<E> importExsel(MultipartFile matrixPhoneImport) throws IOException, ParseException {

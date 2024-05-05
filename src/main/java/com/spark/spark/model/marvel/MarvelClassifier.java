@@ -10,6 +10,7 @@ import lombok.ToString;
 import jakarta.persistence.Id;
 
 @Data
+//TODO: @Data лучше избегать при работе с @Entity https://habr.com/ru/companies/haulmont/articles/564682/
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -18,7 +19,10 @@ public class MarvelClassifier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    //TODO: имя не camelCase
     private String RainbowNomenclature;
+    //TODO: имя не camelCase
     private String ManufacturersArticle;
+    //TODO: имя не camelCase
     private String Name;
 }

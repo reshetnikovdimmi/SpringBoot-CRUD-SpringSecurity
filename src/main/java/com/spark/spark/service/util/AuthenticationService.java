@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+//TODO: не совсем похоже на AuthenticationService. Кажется метод listShop перенести в ShopService
 public class AuthenticationService {
 
     @Autowired
     private ShopRepository shopRepository;
+
 
     public List<Shop> listShop() {
         List<Shop> objects = new ArrayList<>();

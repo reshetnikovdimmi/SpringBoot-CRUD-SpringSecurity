@@ -21,7 +21,7 @@ import java.util.List;
 @Setter
 @ToString
 public class ExselFileImportInvoices<E> extends ExselFileImport {
-
+    //TODO: модификатор private?
     String provider;
 
     @Override

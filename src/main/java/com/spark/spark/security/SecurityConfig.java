@@ -26,6 +26,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
+//TODO: лучше перенести этот класс в пакет config
 public class SecurityConfig {
     @Autowired
     private ShopDetailsServiceImpl shopDetailsService;
@@ -34,7 +35,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http  .csrf().disable()
+        http.csrf().disable()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers( "/admin").hasAuthority("ADMIN")
                         .requestMatchers("/api/v1/auth/**").permitAll()

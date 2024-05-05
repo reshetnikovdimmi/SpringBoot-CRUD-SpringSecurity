@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 @AllArgsConstructor
 @Getter
+//TODO: может implements UserDetails делать в SecurityConfig?
 public class ShopDetailsImpl implements UserDetails {
     private final Shop shop;
     @Override

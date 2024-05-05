@@ -24,7 +24,7 @@ public class PhoneMatrixController extends CRUDController<PhoneMatrix, Long> {
 
     @Autowired
     private PhoneMatrixRepository phoneMatrixRepository;
-
+    //TODO: константы должны быть выше всех в определении + кажется нужен класс констант куда это можно вынести
     public static final String PROMO_MATRIX_URL = "ui/phone-matrix";
     public static final String PROMO_MATRIX_NAME = "phone-matrix";
 

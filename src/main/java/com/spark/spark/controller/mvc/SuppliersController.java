@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SuppliersController extends CRUDController<Suppliers, Long> {
     @Autowired
     private SuppliersService suppliersService;
-
+    //TODO: константы должны быть выше всех в определении + кажется нужен класс констант куда это можно вынести
     public static final String SUPPLIERS_URL = "ui/suppliers";
     public static final String SUPPLIERS_NAME = "suppliers";
 

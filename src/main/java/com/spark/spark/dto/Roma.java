@@ -7,6 +7,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+//TODO: к классам DTO можно добавлять суффикс. Например ArticleImeiMarvelDto
 public class Roma {
     public String  model;
     public Long  things;

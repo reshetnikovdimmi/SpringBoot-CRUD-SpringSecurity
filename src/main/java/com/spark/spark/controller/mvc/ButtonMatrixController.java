@@ -24,6 +24,7 @@ public class ButtonMatrixController extends CRUDController<ButtonMatrix, Long> {
     @Autowired
     private ButtonMatrixService buttonMatrixService;
 
+    //TODO: константы должны быть выше всех в определении + кажется нужен класс констант куда это можно вынести
     public static final String BUTTON_MATRIX_URL = "ui/button-matrix";
     public static final String BUTTON_MATRIX_NAME = "button-matrix";
 

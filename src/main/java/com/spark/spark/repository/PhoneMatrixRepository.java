@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
+//TODO: если делаем extends CrudRepository то @Repository кажется не нужно
 public interface PhoneMatrixRepository extends CrudRepository<PhoneMatrix, Long> {
     @Query("SELECT DISTINCT model FROM PhoneMatrix")
     List<String> getListModel();
