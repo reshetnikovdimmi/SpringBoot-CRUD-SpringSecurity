@@ -213,9 +213,9 @@
                     </div>
                     <div class="col-6 col-md-4 themed-grid-col">
                         <div class="col-6 col-md-4 themed-grid-col">
-                            <form action="" method="post">
-                                <button class="btn  btn-outline-primary" type="submit">EXSEL</button>
-                            </form>
+
+                                <a href="/ui/marwel/report-upload-exсel-exporte" class="btn btn-outline-primary me-2">EXCEL</a>
+
                         </div>
                     </div>
                 </div>
@@ -270,7 +270,20 @@
 
             </div>
             <div id="menu2" class="container tab-pane fade"><br>
+                <div class="row mb-3">
 
+                        <div class="col">
+                            <form action="" method="post">
+                                <button class="btn  btn-outline-primary" type="submit">Outlook</button>
+                            </form>
+                        </div>
+
+
+                        <div class="col">
+                            <a href="/ui/marwel/roma-exсel-exporte" class="btn btn-outline-primary me-2">EXCEL</a>
+                        </div>
+
+                </div>
                 <div class="row mb-3">
                     <div class="col-6 col-md-4 themed-grid-col">
                         <h6>POCO</h6>
@@ -310,9 +323,9 @@
 
                             <tr th:each="current : ${Xiaomi}">
 
-                                <td th:text="${current.nomenclature}"></td>
+                                <td th:text="${current.model}"></td>
                                 <td th:text="${current.sale}"></td>
-                                <td th:text="${current.remanis}"></td>
+                                <td th:text="${current.remains}"></td>
 
                             <tbody class="labels2">
                         </table>
@@ -323,11 +336,11 @@
                             <thead>
                             <tr>
 
-                                <th>Артикул</th>
-                                <th>IMEI</th>
-                                <th>IMEI</th>
-                                <th>IMEI</th>
-                                <th>IMEI</th>
+                                <th>model</th>
+                                <th>things</th>
+                                <th>rub</th>
+                                <th>fractionThings</th>
+                                <th>fractionRub</th>
 
                             </tr>
                             </thead>
@@ -335,11 +348,11 @@
 
                             <tr th:each="current : ${forRomaShares}">
 
-                                <td th:text="${current.Name}"></td>
-                                <td th:text="${current.sale}"></td>
-                                <td th:text="${current.remanis}"></td>
-                                <td th:text="${current.shareRubles}"></td>
-                                <td th:text="${current.sharePercentage}"></td>
+                                <td th:text="${current.model}"></td>
+                                <td th:text="${current.things}"></td>
+                                <td th:text="${current.rub}"></td>
+                                <td th:text="${current.fractionThings}"></td>
+                                <td th:text="${current.fractionRub}"></td>
                             </tbody>
                         </table>
                     </div>

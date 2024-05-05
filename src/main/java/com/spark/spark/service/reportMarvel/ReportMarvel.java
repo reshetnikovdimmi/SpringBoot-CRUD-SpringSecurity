@@ -64,10 +64,10 @@ public class ReportMarvel implements CheckingLists {
     }
 
     public Object remainsSaleXiaomi(Date start, Date stop) {
-        return null;
+        return invoicesRepository.remainsSaleXiaomi();
     }
 
     public Object romaShares(Date start, Date stop) {
-        return null;
+        return invoicesRepository.romaShares();
     }
 }

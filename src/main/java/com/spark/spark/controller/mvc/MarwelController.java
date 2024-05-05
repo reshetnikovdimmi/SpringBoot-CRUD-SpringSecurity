@@ -1,5 +1,6 @@
 package com.spark.spark.controller.mvc;
 
+import com.spark.spark.exsel.exportFile.ExselFileExporte;
 import com.spark.spark.exsel.importFile.ExselFileImport;
 import com.spark.spark.exsel.importFile.ExselFileImportRemainsMarvel;
 import com.spark.spark.model.marvel.MarvelClassifier;
@@ -7,6 +8,8 @@ import com.spark.spark.service.reportMarvel.ReportMarvel;
 import com.spark.spark.repository.RemainsMarvelRepository;
 import com.spark.spark.service.interf.CRUDService;
 import com.spark.spark.service.interf.MarvelClassifierService;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.poi.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
@@ -89,5 +93,23 @@ public class MarwelController extends CRUDController<MarvelClassifier, Long> {
         model.addAttribute("forRomaShares", reportMarvel.romaShares(start, stop));
 
         return getEntityName() + "/shop-list";
+    }
+
+    @GetMapping("/report-upload-exсel-exporte")
+    public void reportUploadExсelExporte(HttpServletResponse response) throws IOException, ParseException {
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment; filename=start.xlsx");
+        ByteArrayInputStream inputStream = ExselFileExporte.exportFile();;
+        IOUtils.copy(inputStream, response.getOutputStream());
+
+    }
+
+    @GetMapping("/roma-exсel-exporte")
+    public void romaExсelExporte(HttpServletResponse response) throws IOException, ParseException {
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment; filename=start.xlsx");
+        ByteArrayInputStream inputStream = ExselFileExporte.exportFile();;
+        IOUtils.copy(inputStream, response.getOutputStream());
+
     }
 }
