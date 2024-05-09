@@ -22,7 +22,7 @@ import java.util.List;
 @ToString
 public class ExselFileImportInvoices<E> extends ExselFileImport {
 
-    String provider;
+    public String provider;
 
     @Override
     public List<E> importExsel(MultipartFile matrixPhoneImport) throws IOException, ParseException {

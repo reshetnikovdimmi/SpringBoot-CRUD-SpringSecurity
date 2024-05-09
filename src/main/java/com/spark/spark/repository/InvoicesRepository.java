@@ -8,23 +8,23 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface InvoicesRepository extends CrudRepository<Invoices, Long> {
-    @Query("SELECT new com.spark.spark.dto.RemnantsSaleMarvel(m.ManufacturersArticle, m.Name, COUNT(r.characteristic),  COUNT(s.characteristic)) FROM Invoices i " +
+    @Query("SELECT new com.spark.spark.dto.RemnantsSaleMarvelDto(m.ManufacturersArticle, m.Name, COUNT(i.characteristic),  COUNT(i.characteristic)) FROM Invoices i " +
             "LEFT JOIN  i.remainsMarvel r LEFT JOIN  i.salesReport s LEFT JOIN  i.marvelClassifier m WHERE m.ManufacturersArticle IS NOT NULL GROUP BY m.ManufacturersArticle")
-    List<RemnantsSaleMarvel> remnantsSaleMarvel();
+    List<RemnantsSaleMarvelDto> remnantsSaleMarvel();
 
-    @Query("SELECT new com.spark.spark.dto.ArticleImeiMarvel(m.ManufacturersArticle, s.characteristic) FROM Invoices i " +
+    @Query("SELECT new com.spark.spark.dto.ArticleImeiMarvelDto(m.ManufacturersArticle, s.characteristic) FROM Invoices i " +
             "LEFT JOIN  i.salesReport s LEFT JOIN  i.marvelClassifier m WHERE m.ManufacturersArticle IS NOT NULL ")
-    List<ArticleImeiMarvel> articleImei();
+    List<ArticleImeiMarvelDto> articleImei();
 
-    @Query("SELECT new com.spark.spark.dto.Poco(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic)) FROM Invoices i " +
+    @Query("SELECT new com.spark.spark.dto.PocoDto(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic)) FROM Invoices i " +
             "LEFT JOIN  i.remainsMarvel r LEFT JOIN  i.salesReport s LEFT JOIN  i.marvelClassifier m WHERE m.ManufacturersArticle IS NOT NULL GROUP BY m.ManufacturersArticle")
-    List<Poco> remainsSalePoco();
+    List<PocoDto> remainsSalePoco();
 
-    @Query("SELECT new com.spark.spark.dto.Xiaomi(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic) ) FROM Invoices i " +
+    @Query("SELECT new com.spark.spark.dto.XiaomiDto(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic) ) FROM Invoices i " +
             "LEFT JOIN  i.remainsMarvel r LEFT JOIN  i.salesReport s LEFT JOIN  i.marvelClassifier m WHERE m.ManufacturersArticle IS NOT NULL GROUP BY m.ManufacturersArticle")
-    List<Xiaomi>  remainsSaleXiaomi();
+    List<XiaomiDto>  remainsSaleXiaomi();
 
-    @Query("SELECT new com.spark.spark.dto.Roma(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic), COUNT(r.characteristic),  COUNT(s.characteristic)) FROM Invoices i " +
+    @Query("SELECT new com.spark.spark.dto.RomaDto(m.ManufacturersArticle, COUNT(r.characteristic),  COUNT(s.characteristic), COUNT(r.characteristic),  COUNT(s.characteristic)) FROM Invoices i " +
             "LEFT JOIN  i.remainsMarvel r LEFT JOIN  i.salesReport s LEFT JOIN  i.marvelClassifier m WHERE m.ManufacturersArticle IS NOT NULL GROUP BY m.ManufacturersArticle")
-    List<Roma> romaShares();
+    List<RomaDto> romaShares();
 }

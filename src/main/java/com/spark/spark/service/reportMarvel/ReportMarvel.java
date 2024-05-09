@@ -1,7 +1,6 @@
 package com.spark.spark.service.reportMarvel;
 
-import com.spark.spark.dto.ArticleImeiMarvel;
-import com.spark.spark.dto.RemnantsSaleMarvel;
+import com.spark.spark.dto.*;
 import com.spark.spark.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +35,9 @@ public class ReportMarvel implements CheckingLists {
         a = remainsMarvelRepository.getRemainsSimAndModem();
         b = phoneMatrixRepository.getModelList();
         b.addAll(buttonMatrixRepository.getModelsButton());
-       // b.addAll(simAndRtkTableRepositoriy.getNameRainbows());
 
-        return aMinusB(a,b);
+
+        return subtract(a,b);
 
     }
 
@@ -46,28 +45,28 @@ public class ReportMarvel implements CheckingLists {
        List<String> a = phoneMatrixRepository.getModelListXiaomi();
        List<String> b = marvelClassifierRepository.getRainbowNomenclature();
 
-        return aMinusB(a,b);
+        return subtract(a,b);
     }
 
-    public List<RemnantsSaleMarvel> reportUploadPortal(Date start, Date stop) {
+    public List<RemnantsSaleMarvelDto> reportUploadPortal(Date start, Date stop) {
 
         return invoicesRepository.remnantsSaleMarvel();
     }
 
-    public List<ArticleImeiMarvel> articleImeiList(Date start, Date stop) {
+    public List<ArticleImeiMarvelDto> articleImeiList(Date start, Date stop) {
 
         return invoicesRepository.articleImei();
     }
 
-    public Object remainsSalePoco(Date start, Date stop) {
+    public List<PocoDto> remainsSalePoco(Date start, Date stop) {
         return invoicesRepository.remainsSalePoco();
     }
 
-    public Object remainsSaleXiaomi(Date start, Date stop) {
+    public List<XiaomiDto> remainsSaleXiaomi(Date start, Date stop) {
         return invoicesRepository.remainsSaleXiaomi();
     }
 
-    public Object romaShares(Date start, Date stop) {
+    public List<RomaDto> romaShares(Date start, Date stop) {
         return invoicesRepository.romaShares();
     }
 }

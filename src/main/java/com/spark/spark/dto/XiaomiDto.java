@@ -7,7 +7,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Xiaomi {
+public class XiaomiDto {
     public String  model;
     public Long  sale;
     public Long  remains;

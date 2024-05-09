@@ -3,19 +3,18 @@ package com.spark.spark.model;
 import com.spark.spark.model.marvel.MarvelClassifier;
 import com.spark.spark.model.marvel.RemainsMarvel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @ToString
 public class Invoices {

@@ -1,6 +1,5 @@
 $(document).ready(function() {
-let today = new Date().toISOString().slice(0, 10);
-    $('#showDate').val(today)
+
         update()
 
         del()

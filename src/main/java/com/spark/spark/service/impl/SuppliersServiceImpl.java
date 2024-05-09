@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SuppliersServiceImpl extends AbstractCRUDService<Suppliers, Long>  implements SuppliersService {
     @Autowired
-    SuppliersRepository suppliersRepository;
-    @Autowired
+    private SuppliersRepository suppliersRepository;
+    private @Autowired
     PasswordEncoder passwordEncoder;
 
     @Override

@@ -3,43 +3,42 @@ package com.spark.spark.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.util.Date;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @ToString
 public class Promo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
     @NotNull(message = "пусто")
-    String brend;
+    private String brend;
     @NotNull(message = "пусто")
-    String y_name;
+    private String y_name;
     @NotNull(message = "пусто")
-    String models;
+    private String models;
     @NotNull(message = "пусто")
-    Integer price;
+    private Integer price;
     @NotNull(message = "пусто")
-    Integer price_promo;
+    private Integer price_promo;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @NotNull(message = "пусто")
-    Date startPromo;
+    private Date startPromo;
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat (iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @NotNull(message = "пусто")
-    Date endPromo;
+    private Date endPromo;
     @NotNull(message = "пусто")
-    Integer compensation;
+    private Integer compensation;
 
 }

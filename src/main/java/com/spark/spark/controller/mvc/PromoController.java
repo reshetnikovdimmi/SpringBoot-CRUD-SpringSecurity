@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 @Controller
@@ -68,6 +69,7 @@ public class PromoController extends CRUDController<Promo, Long> {
         utilDate = new java.util.Date();
         sqlDate = new java.sql.Date(utilDate.getTime());
         promoServiceImpl.loadTodayYesterday(sqlDate);
+        model.addAttribute("localDate", LocalDate.now());
         model.addAttribute("shop1", getObj());
         model.addAttribute("shop", getService().findAll());
         model.addAttribute("promoExtension", promoServiceImpl.promoExtension());
@@ -98,6 +100,7 @@ public class PromoController extends CRUDController<Promo, Long> {
         utilDate = formatter.parse(showDate);
         sqlDate = new java.sql.Date(utilDate.getTime());
         promoServiceImpl.loadTodayYesterday(sqlDate);
+        model.addAttribute("localDate", sqlDate);
         model.addAttribute("shop1", getObj());
         model.addAttribute("shop", getService().findAll());
         model.addAttribute("promoExtension", promoServiceImpl.promoExtension());

@@ -7,10 +7,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Poco {
-
-        public String  model;
-        public Long  sale;
-        public Long  remains;
-
+public class RemnantsSaleMarvelDto {
+    public String  manufacturerArticle;
+    public String  name;
+    public Long  sale;
+    public Long  remains;
 }

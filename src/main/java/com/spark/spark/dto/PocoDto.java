@@ -7,9 +7,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ArticleImeiMarvel {
+public class PocoDto {
 
-    public String manufacturerArticle;
-    public String imei;
+        public String  model;
+        public Long  sale;
+        public Long  remains;
 
 }

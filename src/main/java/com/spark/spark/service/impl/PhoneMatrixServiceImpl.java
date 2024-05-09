@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PhoneMatrixServiceImpl extends AbstractCRUDService<PhoneMatrix, Long>  implements PhoneMatrixService {
     @Autowired
-    PhoneMatrixRepository phoneMatrixRepository;
+   private PhoneMatrixRepository phoneMatrixRepository;
     @Override
     CrudRepository<PhoneMatrix, Long> getRepository() {
         return phoneMatrixRepository;

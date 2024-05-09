@@ -21,7 +21,7 @@ public class ButtonMatrixServiceImpl extends AbstractCRUDService<ButtonMatrix, L
 
     @Override
     public List<ButtonMatrix> findAll() {
-        List<ButtonMatrix> objects = buttonMatrixRepository.getButtonMatrixPrice();
-        return objects;
+
+        return buttonMatrixRepository.getButtonMatrixPrice();
     }
 }

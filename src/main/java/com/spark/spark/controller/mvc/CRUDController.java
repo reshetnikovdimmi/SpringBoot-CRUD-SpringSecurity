@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
 
 
 @Controller
@@ -33,6 +34,7 @@ public abstract class CRUDController<E, K> {
     public String showList(Model model) {
         model.addAttribute("shop1", getObj());
         model.addAttribute("shop", getService().findAll());
+        model.addAttribute("localDate", LocalDate.now());
         return getEntityName() + "/shop-list";
     }
 

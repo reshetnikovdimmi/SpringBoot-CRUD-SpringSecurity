@@ -28,7 +28,7 @@ public interface PhoneMatrixRepository extends CrudRepository<PhoneMatrix, Long>
     @Query("SELECT DISTINCT distributionModel  FROM PhoneMatrix")
     List<String> getModelList();
 
-    @Query("SELECT distributionModel  FROM PhoneMatrix WHERE model = 'Poco' OR model = 'Xiaomi'")
+    @Query("SELECT distributionModel  FROM PhoneMatrix WHERE model = 'PocoDto' OR model = 'XiaomiDto'")
     List<String> getModelListXiaomi();
 
 }

@@ -13,9 +13,9 @@ import java.util.Calendar;
 import java.util.List;
 
 @Service
-public class PromoServiceImpl extends AbstractCRUDService<Promo, Long>  implements PromoService {
+public class PromoServiceImpl extends AbstractCRUDService<Promo, Long> implements PromoService {
     @Autowired
-    PromoRepository promoRepository;
+    private PromoRepository promoRepository;
 
     private List<Promo> today;
     private List<Promo> yesterday;
@@ -27,7 +27,7 @@ public class PromoServiceImpl extends AbstractCRUDService<Promo, Long>  implemen
 
 
     public Object startPromo() {
-        return todayStartEndPromo( today, yesterday);
+        return todayStartEndPromo(today, yesterday);
     }
 
     public Object endPromo() {
@@ -35,16 +35,16 @@ public class PromoServiceImpl extends AbstractCRUDService<Promo, Long>  implemen
     }
 
     public Object promoExtension() {
-        return extensionTodayPromo(today,yesterday);
+        return extensionTodayPromo(today, yesterday);
     }
 
     private Object todayStartEndPromo(List<Promo> today, List<Promo> yesterday) {
         List<Promo> promoList = new ArrayList<>();
-        for (Promo t:today){
+        for (Promo t : today) {
             if (yesterday.stream()
                     .filter(y -> t.getModels().equals(y.getModels()))
                     .findAny()
-                    .orElse(null)==null){
+                    .orElse(null) == null) {
                 promoList.add(t);
             }
         }
@@ -53,18 +53,18 @@ public class PromoServiceImpl extends AbstractCRUDService<Promo, Long>  implemen
 
     private Object extensionTodayPromo(List<Promo> today, List<Promo> yesterday) {
         List<Promo> promoList = new ArrayList<>();
-        for (Promo t:today){
+        for (Promo t : today) {
             if (yesterday.stream()
                     .filter(y -> t.getModels().equals(y.getModels()))
                     .findAny()
-                    .orElse(null)!=null){
+                    .orElse(null) != null) {
                 promoList.add(t);
             }
         }
         return promoList;
     }
 
-    public void loadTodayYesterday(Date date){
+    public void loadTodayYesterday(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, -1);

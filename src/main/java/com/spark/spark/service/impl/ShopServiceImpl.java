@@ -16,9 +16,9 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class ShopServiceImpl extends AbstractCRUDService<Shop, Long>  implements ShopService {
     @Autowired
-    ShopRepository shopRepository;
+    private ShopRepository shopRepository;
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     CrudRepository getRepository() {
