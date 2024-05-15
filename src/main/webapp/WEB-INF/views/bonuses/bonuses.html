@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
-    <script type="text/javascript" th:src="@{/JS/loading.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bonuses/shop-list.js}"></script>
     <link rel="stylesheet" th:href="@{/css/shop-list.css}"/>
 </head>
 <body>
@@ -64,12 +64,12 @@
         </header>
         <div class="row">
             <div class="col-5 col-lg-4 themed-grid-col">
-                <form action="@{/all-bonuses}" >
+                <form th:action="@{/all-bonuses}" method="post">
                     <div class="input-group mb-3">
 
-                        <input type="date" th:value="${localDate}" name="price" class="form-control" id="start" required>
-                        <input type="date" name="price" class="form-control" id="stop" required>
-                        <button class="btn btn-outline-secondary" name="save" id="save" type="submit">Кнопка</button>
+                        <input type="date" th:value="${localDate}" name="start" class="form-control" id="start" required>
+                        <input type="date" name="stop" class="form-control" id="stop" required>
+                        <button class="btn btn-outline-secondary" name="save" id="save" type="submit">Показать</button>
                     </div>
                 </form>
                     <div class="row">
@@ -102,47 +102,44 @@
             </div>
             <div class="col-sm-6 col-lg-8 themed-grid-coll">
                 <div class="row">
-                    <form th:method="POST" th:action="@{/ui/button-matrix/create}" th:object="${shop1}">
+                    <form th:method="POST" th:action="@{/search-bonuses}" th:object="${shop1}">
                     <div class="input-group mb-3">
 
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="shop" th:object="${tests}">
                             <option selected>Выберите...</option>
-                            <option value="1">Один</option>
-                            <option value="2">Два</option>
-                            <option value="3">Три</option>
+                            <option th:each="test : ${tests}" th:value="${test.shopIskra}" th:text="${test.shopIskra}"></option>
                         </select>
 
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="suppliers" th:object="${suppliers}">
                             <option selected>Выберите...</option>
-                            <option value="1">Один</option>
-                            <option value="2">Два</option>
-                            <option value="3">Три</option>
+                            <option th:each="test : ${suppliers}" th:value="${test.name}" th:text="${test.name}"></option>
                         </select>
 
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="brend">
                             <option selected>Выберите...</option>
-                            <option value="1">Один</option>
-                            <option value="2">Два</option>
-                            <option value="3">Три</option>
+
                         </select>
 
-                        <select class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="y_name">
                             <option selected>Выберите...</option>
-                            <option value="1">Один</option>
-                            <option value="2">Два</option>
-                            <option value="3">Три</option>
+
                         </select>
-                        <input type="date" name="price" class="form-control" id="endDateAmount" >
-                        <input type="date" name="price" class="form-control" id="endDateAmount" >
-                        <button class="btn btn-outline-secondary" type="button">Кнопка</button>
+
+                        <select class="form-select" id="models">
+                            <option selected>Выберите...</option>
+
+                        </select>
+                        <input type="date" th:value="${localDate}"  name="startAll" class="form-control" id="startAll" required>
+                        <input type="date" name="endAll" class="form-control" id="endAll" required>
+                        <button class="btn btn-outline-secondary" type="submit">Показать</button>
 
                     </div>
                     </form>
                 </div>
                 <div class="row">
-                    <div class="table" id="table_TableAllBonus">
+                    <div class="table" id="table_AllBonus">
 
-                            <table class="table-responsive table-hover" id="tables_TableAllBonus">
+                            <table class="table-responsive table-hover" id="tables_AllBonus">
                                 <thead class="table table-striped table-hover">
                                 <tr>
                                     <th>№ п/п</th>
@@ -153,12 +150,17 @@
                                 </tr>
                                 </thead>
                                 <tbody class="tbody">
-                                <tr th:each="current : ${shop}">
+                                <tr th:each="current : ${shopss}">
 
-                                    <td th:text="${current.id}"></td>
-                                    <td th:text="${current.model}"></td>
-                                    <td th:text="${current.brand}"></td>
-                                    <td th:text="${current.price}"></td>
+
+                                    <td th:text="${current.characteristic}"></td>
+                                    <td th:text="${current.shop}"></td>
+                                    <td th:text="${current.nomenclature}"></td>
+                                    <td th:text="${current.dateSale}"></td>
+                                    <td th:text="${current.suppliers}"></td>
+                                    <td th:text="${current.compensation}"></td>
+                                    <td th:text="${current.startPromo}"></td>
+                                    <td th:text="${current.endPromo}"></td>
 
                                 </tr>
 

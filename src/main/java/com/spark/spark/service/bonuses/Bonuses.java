@@ -20,10 +20,11 @@ public class Bonuses {
     @Autowired
     private PromoRepository promoRepository;
     List<Promo> promos;
+    List<SalesReport> reports;
 
-    public Object getAllBonuses(LocalDate now) {
+    public Object getAllBonuses(LocalDate now, LocalDate nowed) {
         promos = new ArrayList<>();
-        List<SalesReport> reports = (List<SalesReport>) salesReport.salesReport(now);
+        reports = (List<SalesReport>) salesReport.salesReport(now,nowed);
         promos = (List<Promo>) promoRepository.findAll();
         reports.forEach(s -> s.setCompensation(searchCompensation(s.getDateSale(), s.getModels())));
         return reports.stream().collect((groupingBy(SalesReport::getSuppliers, Collectors.summingDouble(SalesReport::getCompensation))));
@@ -39,5 +40,10 @@ public class Bonuses {
             }
         }
         return 0.0;
+    }
+
+    public Object getAllBonuse() {
+
+        return reports;
     }
 }

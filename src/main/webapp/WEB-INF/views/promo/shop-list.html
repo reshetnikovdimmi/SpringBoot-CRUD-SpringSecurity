@@ -75,7 +75,7 @@
                 <div class="col-5 col-lg-4 themed-grid-col">
                     <form th:method="POST" th:action="@{/ui/promo/create}" th:object="${shop1}">
                         <div class="row" style="margin-bottom: 10px">
-                            <div class="col input-group has-validation">
+                            <div class="input-group mb-3">
 
 
                                 <input type="hidden" th:field="*{id}" name="id" id="id">
@@ -86,21 +86,12 @@
                                             th:text="${option}"></option>
                                 </select>
 
-                                <br/>
-
-
-                            </div>
-                            <div class="col input-group has-validation">
-
 
                                 <select id="y_name" class="form-select form-select-sm" th:field="*{y_name}">
 
                                     <option th:each="option : ${optionsPhone}" th:value="${option}"
                                             th:text="${option}"></option>
                                 </select>
-
-                            </div>
-                            <div class="col input-group has-validation">
 
 
                                 <select id="models" class="form-select form-select-sm " th:field="*{models}">
@@ -112,14 +103,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="input-group mb-3">
 
 
                                 <input style="margin-bottom: 10px" class="form-control form-control-sm" type="date"
                                        th:field="*{startPromo}" id="startPromo">
-
-                            </div>
-                            <div class="col">
 
 
                                 <input style="margin-bottom: 10px" class="form-control form-control-sm" type="date"
@@ -127,48 +115,42 @@
 
 
                             </div>
-                            <div class="col">
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3">
 
+
+                                <input style="margin-bottom: 10px" class="form-control form-control-sm" type="text"
+                                       th:field="*{price}" name="price" id="price"
+                                       placeholder="price">
+
+
+                                <input style="margin-bottom: 10px" class="form-control form-control-sm" type="text"
+                                       th:field="*{price_promo}" name="price_promo" id="price_promo"
+                                       placeholder="price_promo">
 
                                 <input style="margin-bottom: 10px" class="form-control form-control-sm" type="text"
                                        th:field="*{compensation}" name="compensation" id="compensation"
                                        placeholder="compensation">
 
                             </div>
-                            <div class="row">
-                                <div class="col">
-
-
-                                    <input style="margin-bottom: 10px" class="form-control form-control-sm" type="text"
-                                           th:field="*{price}" name="price" id="price"
-                                           placeholder="price">
-
-                                </div>
-                                <div class="col">
-
-
-                                    <input style="margin-bottom: 10px" class="form-control form-control-sm" type="text"
-                                           th:field="*{price_promo}" name="price_promo" id="price_promo"
-                                           placeholder="price_promo">
-
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn btn-outline-primary me-2" name="save" id="save" type="submit">
-                                        Сохранить
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn btn-outline-primary me-2" th:formaction="@{/ui/promo/search}" name="save" id="save1" type="submit">
-                                        Найти
-                                    </button>
-                                </div>
-                            </div>
 
                         </div>
+
+                        <div class="row">
+                            <div class="btn-group mb-3">
+                                <button class="btn btn-outline-secondary me-2" name="save" id="save" type="submit">
+                                    Сохранить
+                                </button>
+
+                                <button class="btn btn-outline-secondary me-2" th:formaction="@{/ui/promo/search}"
+                                        name="save" id="save1" type="submit">
+                                    Найти
+                                </button>
+                            </div>
+                        </div>
+
+
                     </form>
 
 
@@ -183,75 +165,71 @@
                             <div class="col" style=" padding: 5px 20px;">
 
 
-                                    <table class="table table-striped table-hover">
-                                        <caption style="font-size:14px; " class=" fw-lighter ">Текущее PROMO</caption>
-                                        <thead>
-                                        <tr>
+                                <table class="table table-responsive table-hover">
+                                    <caption style="font-size:14px; " class=" fw-lighter ">Текущее PROMO</caption>
+                                    <thead>
+                                    <tr>
 
-                                            <th>models</th>
-                                            <th>price</th>
-                                            <th>price_promo</th>
-                                            <th>start_promo</th>
-                                            <th>end_promo</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody class="tbody">
-
-                                        <tr th:each="current : ${current_promo}">
-
-                                            <td th:text="${current.models}"></td>
-                                            <td th:text="${current.price}"></td>
-                                            <td th:text="${current.price_promo}"></td>
-                                            <td th:text="${#dates.format (current.StartPromo, 'dd-MM-yyy')}"></td>
-                                            <td th:text="${#dates.format (current.EndPromo, 'dd-MM-yyy')}"></td>
-
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                        <th>models</th>
+                                        <th>price</th>
+                                        <th>price_promo</th>
+                                        <th>start_promo</th>
+                                        <th>end_promo</th>
 
 
+                                    </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+
+                                    <tr th:each="current : ${current_promo}">
+
+                                        <td th:text="${current.models}"></td>
+                                        <td th:text="${current.price}"></td>
+                                        <td th:text="${current.price_promo}"></td>
+                                        <td th:text="${#dates.format (current.StartPromo, 'dd-MM-yyy')}"></td>
+                                        <td th:text="${#dates.format (current.EndPromo, 'dd-MM-yyy')}"></td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
 
 
                             </div>
                             <div class="col" style=" padding: 5px 20px;">
 
 
-                                    <table class="table table-hover">
-                                        <caption style="font-size:14px; " class=" fw-lighter ">Начало PROMO</caption>
-                                        <thead>
-                                        <tr>
+                                <table class="table table-responsive table-hover">
+                                    <caption style="font-size:14px; " class=" fw-lighter ">Начало PROMO</caption>
+                                    <thead>
+                                    <tr>
 
-                                            <th>models</th>
-                                            <th>price</th>
-                                            <th>price_promo</th>
-                                            <th>end_promo</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody class="tbody">
-
-                                        <tr th:each="start : ${startpromo}">
-
-                                            <td th:text="${start.models}"></td>
-                                            <td th:text="${start.price}"></td>
-                                            <td th:text="${start.price_promo}"></td>
-                                            <td th:text="${#dates.format (start.endPromo, 'dd-MM-yyy')}"></td>
+                                        <th>models</th>
+                                        <th>price</th>
+                                        <th>price_promo</th>
+                                        <th>end_promo</th>
 
 
-                                        </tbody>
-                                    </table>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+
+                                    <tr th:each="start : ${startpromo}">
+
+                                        <td th:text="${start.models}"></td>
+                                        <td th:text="${start.price}"></td>
+                                        <td th:text="${start.price_promo}"></td>
+                                        <td th:text="${#dates.format (start.endPromo, 'dd-MM-yyy')}"></td>
 
 
+                                    </tbody>
+                                </table>
 
 
                             </div>
                             <div class="col" style=" padding: 5px 20px;">
 
 
-                                <table class="table table-hover">
+                                <table class="table table-responsive table-hover">
                                     <caption style="font-size:14px; " class=" fw-lighter ">Конец PROMO</caption>
                                     <thead>
                                     <tr>
@@ -273,7 +251,6 @@
                                         <td th:text="${start.price_promo}"></td>
                                         <td th:text="${#dates.format (start.endPromo, 'dd-MM-yyy')}"></td>
 
-
                                     </tbody>
                                 </table>
 
@@ -282,34 +259,31 @@
                             <div class="col" style="padding: 5px 20px;">
 
 
+                                <table class="table table-hover">
+                                    <caption style="font-size:14px; " class=" fw-lighter ">Продление PROMO</caption>
+                                    <thead>
+                                    <tr>
 
-                                    <table class="table table-hover">
-                                        <caption style="font-size:14px; " class=" fw-lighter ">Продление PROMO</caption>
-                                        <thead>
-                                        <tr>
-
-                                            <th>models</th>
-                                            <th>price</th>
-                                            <th>price_promo</th>
-                                            <th>end_promo</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody class="tbody">
-
-                                        <tr th:each="start : ${promoExtension}">
-
-                                            <td th:text="${start.models}"></td>
-                                            <td th:text="${start.price}"></td>
-                                            <td th:text="${start.price_promo}"></td>
-                                            <td th:text="${#dates.format (start.endPromo, 'dd-MM-yyy')}"></td>
+                                        <th>models</th>
+                                        <th>price</th>
+                                        <th>price_promo</th>
+                                        <th>end_promo</th>
 
 
-                                        </tbody>
-                                    </table>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="tbody">
+
+                                    <tr th:each="start : ${promoExtension}">
+
+                                        <td th:text="${start.models}"></td>
+                                        <td th:text="${start.price}"></td>
+                                        <td th:text="${start.price_promo}"></td>
+                                        <td th:text="${#dates.format (start.endPromo, 'dd-MM-yyy')}"></td>
 
 
+                                    </tbody>
+                                </table>
 
 
                             </div>
@@ -321,34 +295,35 @@
             </div>
             <div class="row mb-3 text-center">
                 <div class="col-6 col-lg-4 themed-grid-col">
-                    <form th:method="POST" th:action="@{/ui/promo/search-by-date}" >
-                    <div class="row">
+                    <form th:method="POST" th:action="@{/ui/promo/search-by-date}">
+                        <div class="row">
 
-                        <div class="col" style=" padding: 5px 20px;">
+                            <div class="col" style=" padding: 5px 20px;">
 
-                            <div class="row">
-                                <input class="form-control" type="date" th:value="${localDate}" name="showDate" id="showDate"
-                                       placeholder="Введите имя">
+                                <div class="row">
+                                    <input class="form-control" type="date" th:value="${localDate}" name="showDate"
+                                           id="showDate"
+                                           placeholder="Введите имя">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col" style=" padding: 5px 20px;">
+                            <div class="col" style=" padding: 5px 20px;">
 
-                            <div class="row">
-                                <button class="btn btn-outline-primary me-2" id="button-show-promo" type="submit">
-                                    Показать
-                                </button>
+                                <div class="row">
+                                    <button class="btn btn-outline-primary me-2" id="button-show-promo" type="submit">
+                                        Показать
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col" style=" padding: 5px 20px;">
+                            <div class="col" style=" padding: 5px 20px;">
 
-                            <div class="row">
+                                <div class="row">
 
-                                <a href="/ui/promo/exsel-exporte" class="btn btn-outline-primary me-2">EXCEL</a>
+                                    <a href="/ui/promo/exsel-exporte" class="btn btn-outline-primary me-2">EXCEL</a>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -356,59 +331,57 @@
             <div th:text="${message}"></div>
             <div class="row mb-3 text-center">
                 <div class="Store" th:fragment="Store">
+                    <div class="table">
+                        <table class="table-responsive table-hover">
+                            <thead>
+                            <tr>
+                                <th>№ п/п</th>
+                                <th>name</th>
+                                <th>y_name</th>
+                                <th>distributionModel</th>
+                                <th>brand</th>
+                                <th>model</th>
+                                <th>_______</th>
+                                <th>_______</th>
+                            </tr>
+                            </thead>
+                            <tbody class="tbody">
+                            <tr th:each="current : ${shop}">
 
-                    <table class="table table-striped table-hover">
+                                <td th:text="${current.id}"></td>
+                                <td th:text="${current.brend}"></td>
+                                <td th:text="${current.y_name}"></td>
+                                <td th:text="${current.models}"></td>
+                                <td th:text="${current.price}"></td>
+                                <td th:text="${current.price_promo}"></td>
+                                <td th:text="${#dates.format (current.startPromo, 'yyyy-MM-dd')}"></td>
+                                <td th:text="${#dates.format (current.endPromo, 'yyyy-MM-dd')}"></td>
+                                <td th:text="${current.compensation}"></td>
 
-                        <thead>
-                        <tr>
-                            <th>№ п/п</th>
-                            <th>name</th>
-                            <th>y_name</th>
-                            <th>distributionModel</th>
-                            <th>brand</th>
-                            <th>model</th>
-                            <th>_______</th>
-                            <th>_______</th>
-                        </tr>
-                        </thead>
-                        <tbody class="tbody">
-                        <tr th:each="current : ${shop}">
+                                <td>
+                                    <button class="btn  btn-outline-primary btn-sm UPDATE" type="submit">UPDATE</button>
 
-                            <td th:text="${current.id}"></td>
-                            <td th:text="${current.brend}"></td>
-                            <td th:text="${current.y_name}"></td>
-                            <td th:text="${current.models}"></td>
-                            <td th:text="${current.price}"></td>
-                            <td th:text="${current.price_promo}"></td>
-                            <td th:text="${#dates.format (current.startPromo, 'yyyy-MM-dd')}"></td>
-                            <td th:text="${#dates.format (current.endPromo, 'yyyy-MM-dd')}"></td>
-                            <td th:text="${current.compensation}"></td>
-
-                            <td>
-                                <button class="btn  btn-outline-primary UPDATE" type="submit">UPDATE</button>
-
-                            </td>
-
-
-                            <td>
-                                <button class="btn  btn-outline-primary DEL" type="submit">DEL</button>
-                            </td>
+                                </td>
 
 
-                        </tr>
+                                <td>
+                                    <button class="btn  btn-outline-primary btn-sm DEL" type="submit">DEL</button>
+                                </td>
 
 
-                        </tbody>
-                    </table>
+                            </tr>
 
 
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
 
             </div>
 
         </main>
 
-    </div>
     </div>
 
 

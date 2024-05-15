@@ -1,5 +1,6 @@
 package com.spark.spark.repository;
 
+import com.spark.spark.dto.Distribution;
 import com.spark.spark.model.PhoneMatrix;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,5 +31,6 @@ public interface PhoneMatrixRepository extends CrudRepository<PhoneMatrix, Long>
 
     @Query("SELECT distributionModel  FROM PhoneMatrix WHERE model = 'PocoDto' OR model = 'XiaomiDto'")
     List<String> getModelListXiaomi();
+
 
 }

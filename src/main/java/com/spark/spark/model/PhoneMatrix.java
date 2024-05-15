@@ -1,11 +1,11 @@
 package com.spark.spark.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import java.io.Serializable;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -14,9 +14,9 @@ import lombok.*;
 @Setter
 @Entity
 @ToString
-public class PhoneMatrix {
+public class PhoneMatrix implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty(message = "пусто")
     private String name;
@@ -28,4 +28,18 @@ public class PhoneMatrix {
     private String brand;
     @NotEmpty(message = "пусто")
     private String model;
+
+    @OneToMany(targetEntity = Remains. class,cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    private List<Remains> remainsList;
+
+
+
+  /*  @OneToMany(targetEntity = Sale1.class, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    public List<Sale1> sale1List;
+
+    @OneToMany(targetEntity = Sale6.class, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    public List<Sale6> sale6List;*/
 }
