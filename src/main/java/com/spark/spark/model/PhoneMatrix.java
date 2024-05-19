@@ -29,17 +29,15 @@ public class PhoneMatrix implements Serializable {
     @NotEmpty(message = "пусто")
     private String model;
 
-    @OneToMany(targetEntity = Remains. class,cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    @OneToMany(targetEntity = Remains.class, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "nomenclature", referencedColumnName = "distributionModel", insertable = false, updatable = false)
     private List<Remains> remainsList;
 
-
-
-  /*  @OneToMany(targetEntity = Sale1.class, cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    @OneToMany(targetEntity = Sale1.class, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "nomenclature", referencedColumnName = "distributionModel", insertable = false, updatable = false)
     public List<Sale1> sale1List;
 
     @OneToMany(targetEntity = Sale6.class, cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false)
-    public List<Sale6> sale6List;*/
+    @JoinColumn(name = "nomenclature", referencedColumnName = "distributionModel", insertable = false, updatable = false)
+    public List<Sale6> sale6List;
 }

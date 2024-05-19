@@ -1,4 +1,50 @@
 
+    /*Hidden class for adding and removing*/
+    .lds-dual-ring.hidden {
+        display: none;
+    }
+
+    /*Add an overlay to the entire page blocking any further presses to buttons or other elements.*/
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.8);
+        z-index: 999;
+        opacity: 1;
+        transition: all 0.5s;
+    }
+
+    /*Spinner Styles*/
+    .lds-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 5% auto;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+
 
 
       /* Стили для скролла */
@@ -13,22 +59,24 @@
       }
 
 .fixed_header {
-         margin:1px;
-                        padding:1px;
+
 
                         width: 100%;
                         height: 850px;
                         overflow: auto;
 
       }
+      .hide_minMatrix{
+      display: none;
 
+      }
 
 
 
             tbody, thead tr { display: block; }
 
             .tbody {
-                height: 350px;
+                height: 250px;
                 overflow-y: auto;
                 overflow-x: hidden;
 
@@ -36,30 +84,12 @@
 
             tbody td, thead th {
                 width: 300px;
-                 font-size: 11px;
+                 font-size: 08px;
                 overflow: hidden;
 
             }
 
 
 
-  select {
-        width: 100%; /* Ширина списка в пикселах */
-       font-size: 13px;
-               	padding: 6px 0 4px 10px;
-               	border: 1px solid #cecece;
-               	background: #F6F6f6;
-               	border-radius: 8px;
-       }
-    input {
-        width: 100%;
 
-        	font-size: 13px;
-        	padding: 6px 0 4px 10px;
-        	border: 1px solid #cecece;
-        	background: #F6F6f6;
-        	border-radius: 8px;
-        }
-    label {
-        font-size: 9px;
-    }
+

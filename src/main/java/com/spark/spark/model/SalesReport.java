@@ -57,4 +57,6 @@ public class  SalesReport {
     @JoinColumn(name = "nomenclature",referencedColumnName = "distributionModel", insertable = false, updatable = false,foreignKey = @jakarta.persistence
             .ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
     public PhoneMatrix phoneMatrix;
+
+
 }

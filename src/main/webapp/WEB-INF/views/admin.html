@@ -68,7 +68,18 @@
                 </li>
                 <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="/downloads" class="nav-link">Downloads</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MATRIX
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/ui/matrixT2/shop-list">Matrix T2</a>
+                        <a class="dropdown-item" href="/ui/button-matrix/shop-list">Matrix Button</a>
+                        <a class="dropdown-item" href="/ui/suppliers/shop-list">Suppliers</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/ui/shop/shop-list">Setting up a store</a>
+                    </div>
+                </li>
                 <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
                 <li class="nav-item"><form th:action="@{/logout}" method="post">
                     <input class="nav-link" type="submit" value="Sign Out"/>
@@ -91,7 +102,7 @@
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Distribution</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="#">Phones</a>
+                                <a href="/ui/distribution/distribution">Phones</a>
                             </li>
                             <li>
                                 <a href="#">RTK</a>

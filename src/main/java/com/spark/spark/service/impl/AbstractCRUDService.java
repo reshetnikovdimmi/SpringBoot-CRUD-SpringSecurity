@@ -54,12 +54,13 @@ public abstract class AbstractCRUDService<E, K> implements CRUDService<E, K> {
     public void deleteAll() {
         getRepository().deleteAll();
     }
-@Override
 
-    public  List<E>saveAll(List<E> l){
-    List<E> objects = new ArrayList<>();
-    getRepository().saveAll(l).forEach(objects::add);
-    Collections.reverse(objects);
+    @Override
+
+    public List<E> saveAll(List<E> l) {
+        List<E> objects = new ArrayList<>();
+        getRepository().saveAll(l).forEach(objects::add);
+        Collections.reverse(objects);
         return objects;
-}
+    }
 }

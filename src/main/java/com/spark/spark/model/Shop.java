@@ -1,11 +1,10 @@
 package com.spark.spark.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -34,5 +33,7 @@ public class Shop {
     private String simMts;
     private String simBee;
     private String simMf;
+
+
 
 }
