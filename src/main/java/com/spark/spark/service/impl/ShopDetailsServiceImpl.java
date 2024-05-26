@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 @Service
+
 public class ShopDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private ShopRepository userRepository;
