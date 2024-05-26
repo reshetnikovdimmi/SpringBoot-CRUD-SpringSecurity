@@ -6,6 +6,7 @@ import com.spark.spark.repository.ShopRepository;
 import com.spark.spark.service.interf.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 
 @Service
 @Validated
+
 public class ShopServiceImpl extends AbstractCRUDService<Shop, Long>  implements ShopService {
     @Autowired
     private ShopRepository shopRepository;

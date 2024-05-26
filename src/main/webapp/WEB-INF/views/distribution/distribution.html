@@ -100,8 +100,8 @@
                                                 th:text="${current.model}"
                                                 type="button"></button>
                                     </td>
-                                    <td style="width: 300px;" th:text="${current.remainsCash1}"></td>
-                                    <td style="width: 300px;" th:text="${current.remainsCash2}"></td>
+                                    <td style="width: 300px;" th:text="${current.remainsCash1}==0?null:${current.remainsCash1}"></td>
+                                    <td style="width: 300px;" th:text="${current.remainsCash2}==0?null:${current.remainsCash2}"></td>
 
                                 </tr>
 
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <div class="row mb-3 text-center">
-                        <div class="table" id="table_TableAllBonus">
+                        <div class="table" id="">
 
                             <table class="table-responsive table-hover" id="table_shop">
                                 <thead>
@@ -132,10 +132,10 @@
                                                 th:text="${current.shop}"
                                                 type="button"></button>
                                     </td>
-                                    <td style="width: 200px;" th:text="${current.remains}"></td>
-                                    <td style="width: 200px;" th:text="${current.sale1}"></td>
-                                    <td style="width: 200px;" th:text="${current.sale2}"></td>
-                                    <td style="width: 200px;" th:text="${current.needs}"></td>
+                                    <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
+                                    <td style="width: 200px;" th:text="${current.sale1}==0?null:${current.sale1}"></td>
+                                    <td style="width: 200px;" th:text="${current.sale2}==0?null:${current.sale2}"></td>
+                                    <td style="width: 200px;" th:text="${current.needs}==0?null:${current.needs}"></td>
                                 </tr>
 
                                 </tbody>
@@ -144,9 +144,9 @@
                         </div>
                     </div>
                     <div class="row mb-3 text-center">
-                        <div class="table" id="table_TableAllBonus">
+                        <div class="table" >
 
-                            <table class="table-responsive table-hover" id="tables_TableAllBonus">
+                            <table class="table-responsive table-hover" id="table_shop2">
                                 <thead>
                                 <tr>
                                     <th style="width: 50%;">№ п/п</th>
@@ -165,10 +165,10 @@
                                                 th:text="${current.shop}"
                                                 type="button"></button>
                                     </td>
-                                    <td style="width: 200px;" th:text="${current.remains}"></td>
-                                    <td style="width: 200px;" th:text="${current.sale1}"></td>
-                                    <td style="width: 200px;" th:text="${current.sale2}"></td>
-                                    <td style="width: 200px;" th:text="${current.needs}"></td>
+                                    <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
+                                    <td style="width: 200px;" th:text="${current.sale1}==0?null:${current.sale1}"></td>
+                                    <td style="width: 200px;" th:text="${current.sale2}==0?null:${current.sale2}"></td>
+                                    <td style="width: 200px;" th:text="${current.needs}==0?null:${current.needs}"></td>
                                 </tr>
 
                                 </tbody>
@@ -178,8 +178,8 @@
                     </div>
                 </div>
                 <div class="col-md-6 themed-grid-col">
-                    <div class="shop" th:fragment="shop" th:object="${distribution}">
-                        <div class="table" id="table_TableAllBonus">
+                    <div class="shop"  th:fragment="shop" th:object="${distribution}">
+                        <div class="table" >
 
                             <table class="table-responsive table-hover">
                                 <thead>
@@ -197,7 +197,7 @@
                             </table>
                             <div class="fixed_header" >
 
-                                <table style="height: 1180px;" class="table-responsive table-hover">
+                                <table style="height: 1180px;" id="table_shopAll" class="table-responsive table-hover">
 
 
                                          <tbody  th:each="current:${all}" >
@@ -206,28 +206,29 @@
 
                                              <td style="width: 50%;" >
                                                  <button style="width: 100%;" class="btn btn-secondary btn-sm minMatrix"
-                                                         th:text="${current.shop}"
+                                                         th:text="${current.name}"
                                                          type="button"></button>
                                              </td >
                                              <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
 
-                                             <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
-                                             <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
-                                             <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
-                                             <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
-                                             <td style="width: 200px;" th:text="${current.remains}==0?null:${current.remains}"></td>
+
+                                             <td style="width: 200px;" th:text="${current.sale1}==0?null:${current.sale1}"></td>
+                                             <td style="width: 200px;" th:text="${current.sale6}==0?null:${current.sale6}"></td>
+                                             <td style="width: 200px;" th:text="${current.order}==0?null:${current.order}"></td>
+                                             <td style="width: 200px;" th:text="${current.remainsCash1}==0?null:${current.remainsCash1}"></td>
+                                             <td style="width: 200px;" th:text="${current.remainsCash2}==0?null:${current.remainsCash2}"></td>
 
                                          </tr>
 
                                         <tr th:each="currents:${current.all}" class="hide_minMatrix">
-                                             <td  style="background: #cccccc;" th:text="${currents.remains}"></td>
+                                             <td  style="background: #cccccc;" th:text="${currents.distributionModel}"></td>
                                              <td style="background: #cccccc;" th:text="${currents.remains}==0?null:${currents.remains}"></td>
 
-                                             <td style="background: #cccccc;" th:text="${currents.remains}==0?null:${currents.remains}"></td>
-                                             <td style="background: #cccccc;" th:text="${currents.remains}==0?null:${currents.remains}"></td>
-                                             <td style="background: #cccccc;" > <input name="" id=" " class="form-control" th:value="${currents.remains}"></td>
-                                             <td style="background: #cccccc;" th:text="${currents.remains}==0?null:${currents.remains}"></td>
-                                             <td style="background: #cccccc;" th:text="${currents.remains}==0?null:${currents.remains}"></td>
+                                             <td style="background: #cccccc;" th:text="${currents.sale1}==0?null:${currents.sale1}"></td>
+                                             <td style="background: #cccccc;" th:text="${currents.sale6}==0?null:${currents.sale6}"></td>
+                                             <td style="background: #cccccc;" > <input name="" id=" " class="form-control" th:value="${currents.order}==0?null:${currents.order}" ></td>
+                                             <td style="background: #cccccc;" th:text="${currents.remainsCash1}==0?null:${currents.remainsCash1}"></td>
+                                             <td style="background: #cccccc;" th:text="${currents.remainsCash2}==0?null:${currents.remainsCash2}"></td>
                                          </tr>
 
                                          </tbody>
@@ -342,39 +343,71 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#home_hom">Home</a>
+                        <a class="nav-link active" data-toggle="tab" href="#home_hom">Матрица % Мульти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu1">Отчет для загрузки на портал</a>
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Матрица шт Мульти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu2">Отчет для Ромы</a>
+                        <a class="nav-link" data-toggle="tab" href="#menu2">Матрица % Моно</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu3">Классификатор Marvel</a>
+                        <a class="nav-link" data-toggle="tab" href="#menu3">Матрица шт Моно</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu4">Promo Marwel</a>
+                        <a class="nav-link" data-toggle="tab" href="#menu4">Еще что ни-будь придумаю</a>
                     </li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div id="home_hom" class="container tab-pane active"><br>
-                        <h3>HOME</h3>
-                        <div class="row">
+                    <div id="home_hom" class="container-fluid tab-pane active"><br>
 
-                        </div>
+
+                            <table  class="table table-scroll table-striped" >
+                                <thead>
+                                <tr th:each="entry, stats : *{matrix}">
+                                    <th th:each="entr,stat :${stats.index}<1?${entry}" th:style="${stat.index}<1?'width: 10%'"  th:text="${entr.replace('/',' ')}"></th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="entry, stats : *{matrix}">
+                                    <td  th:each="entr,stat :${stats.index}>=1?${entry}"  th:style="${stat.index}<1?'width: 10%'" th:text="${entr}"></td>
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+
 
 
                     </div>
 
 
-                    <div id="menu1" class="container tab-pane fade"><br>
-                        <h3>HOME1</h3>
-                        <div class="row mb-3">
+                    <div id="menu1" class="container-fluid tab-pane fade"><br>
 
-                        </div>
+
+                            <table  class="table table-scroll table-striped" >
+                                <thead>
+                                <tr th:each="entry, stats : *{matrix1}">
+                                    <th th:each="entr,stat :${stats.index}<1?${entry}" th:style="${stat.index}<1?'width: 10%'"  th:text="${entr.replace('/',' ')}"></th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="entry, stats : *{matrix1}">
+                                    <td  th:each="entr,stat :${stats.index}>=1?${entry}"  th:style="${stat.index}<1?'width: 10%'" th:text="${entr}"></td>
+
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+
+
+
 
 
                     </div>
@@ -386,7 +419,7 @@
                         </div>
 
                     </div>
-                    <div id="menu3" class="container tab-pane fade"><br>
+                    <div id="menu3" class="container-fluid tab-pane fade"><br>
                         <h3>HOME3</h3>
                         <div class="row mb-3">
 

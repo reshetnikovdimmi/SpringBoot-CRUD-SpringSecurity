@@ -16,6 +16,9 @@ public interface ShopRepository extends CrudRepository<Shop, Long> {
     @Query("SELECT shopIskra  FROM Shop WHERE clusterIskra != ''")
     List<String> multListShop();
 
+    @Query("SELECT shopIskra  FROM Shop WHERE clusterT2 != ''")
+    List<String> monoListShop();
+
     @Query("SELECT shopIskra  FROM Shop ")
     List<String> getShopList();
 }
