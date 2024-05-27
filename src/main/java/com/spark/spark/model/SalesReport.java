@@ -18,7 +18,7 @@ import java.util.Date;
 @ToString
 public class  SalesReport {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String characteristic;
     private String shop;
